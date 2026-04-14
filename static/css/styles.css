@@ -1,0 +1,281 @@
+:root {
+    --bg-main: #f3f7fc;
+    --bg-card: #ffffff;
+    --text-main: #111827;
+    --text-subtle: #4b5563;
+    --primary: #0b74b8;
+    --primary-hover: #095f97;
+    --danger: #c81e47;
+    --danger-hover: #a5193a;
+    --border: #d7e0ea;
+    --shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(11, 116, 184, 0.08), transparent 28%),
+        radial-gradient(circle at 0% 100%, rgba(245, 158, 11, 0.12), transparent 30%),
+        var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+.bg-shape {
+    display: none;
+}
+
+.bg-shape-1 {
+    width: 320px;
+    height: 320px;
+    background: #99d6ff;
+    top: -80px;
+    right: -120px;
+}
+
+.bg-shape-2 {
+    width: 300px;
+    height: 300px;
+    background: #ffd6a5;
+    bottom: -100px;
+    left: -100px;
+}
+
+.hero {
+    padding: 2.4rem 1.2rem 1rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 2.8vw, 2.6rem);
+    letter-spacing: 0.3px;
+    margin-bottom: 0.35rem;
+}
+
+.hero p {
+    color: var(--text-subtle);
+    font-size: 1.05rem;
+}
+
+.container {
+    width: min(1360px, 96%);
+    margin: 0 auto 2.2rem;
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+}
+
+.panel {
+    grid-column: span 3;
+}
+
+.panel-wide {
+    grid-column: 1 / -1;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem;
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    margin-bottom: 0.9rem;
+    font-size: 1.35rem;
+    letter-spacing: 0.2px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.grid-form > * {
+    min-width: 0;
+}
+
+.grid-form button {
+    grid-column: 1 / -1;
+}
+
+.inline-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+}
+
+.inline-form input {
+    flex: 1 1 220px;
+}
+
+input,
+button {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 0.72rem 0.85rem;
+    font-size: 0.98rem;
+    min-height: 44px;
+}
+
+input,
+button,
+select,
+textarea {
+    width: 100%;
+}
+
+input {
+    background: #f9fbfe;
+}
+
+button {
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    border: none;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+button.danger {
+    background: var(--danger);
+}
+
+button.danger:hover {
+    background: var(--danger-hover);
+}
+
+.outline-btn {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+    margin-bottom: 0.8rem;
+}
+
+.outline-btn:hover {
+    background: rgba(15, 107, 168, 0.08);
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e8eef6;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+#registrations-table {
+    min-width: 1180px;
+}
+
+th,
+td {
+    border-bottom: 1px solid var(--border);
+    padding: 0.78rem 0.72rem;
+    text-align: left;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+tbody tr {
+    background: #ffffff;
+}
+
+tbody td[colspan] {
+    color: var(--text-subtle);
+    text-align: center;
+    padding: 1.1rem 0.7rem;
+}
+
+th {
+    background: #f4f9ff;
+    color: #1f2937;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.status-card p {
+    font-weight: 600;
+    color: var(--primary);
+    min-height: 24px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+.pill-success {
+    color: #0f6d38;
+    background: #dcfce7;
+}
+
+.pill-danger {
+    color: #9f1239;
+    background: #ffe4e6;
+}
+
+@media (max-width: 1200px) {
+    .panel {
+        grid-column: span 6;
+    }
+
+    .grid-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        width: min(96%, 700px);
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+    }
+
+    .panel,
+    .panel-wide {
+        grid-column: 1 / -1;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .grid-form {
+        grid-template-columns: 1fr;
+    }
+
+    .inline-form {
+        flex-direction: column;
+    }
+
+    table {
+        min-width: 640px;
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v={{ asset_version }}">
+</head>
+<body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <header class="hero">
+        <h1>Course Registration System</h1>
+        <p>Manage students, courses, and registrations in one place.</p>
+    </header>
+
+    <main class="container">
+        <section class="card panel">
+            <h2>Student Registration</h2>
+            <form id="student-form" class="grid-form">
+                <input type="text" id="student_id" placeholder="Student ID" required>
+                <input type="text" id="full_name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="phone_number" placeholder="Phone Number" required>
+                <input type="text" id="branch" placeholder="Course / Branch" required>
+                <input type="text" id="semester" placeholder="Year / Semester" required>
+                <button type="submit">Add Student</button>
+            </form>
+        </section>
+
+        <section class="card panel">
+            <h2>Course Registration</h2>
+            <form id="register-form" class="inline-form">
+                <input type="text" id="reg_student_id" placeholder="Student ID" required>
+                <input type="text" id="reg_course_id" placeholder="Course ID" required>
+                <button type="submit">Register Course</button>
+            </form>
+
+            <form id="drop-form" class="inline-form">
+                <input type="text" id="drop_student_id" placeholder="Student ID" required>
+                <input type="text" id="drop_course_id" placeholder="Course ID" required>
+                <button type="submit" class="danger">Drop Course</button>
+            </form>
+        </section>
+
+        <section class="card panel">
+            <h2>Delete Records (Optional)</h2>
+            <form id="delete-student-form" class="inline-form">
+                <input type="text" id="delete_student_id" placeholder="Student ID" required>
+                <button type="submit" class="danger">Delete Student</button>
+            </form>
+            <form id="delete-course-form" class="inline-form">
+                <input type="text" id="delete_course_id" placeholder="Course ID" required>
+                <button type="submit" class="danger">Delete Course</button>
+            </form>
+        </section>
+
+        <section class="card panel status-card">
+            <h2>System Messages</h2>
+            <p id="status-message">Ready</p>
+        </section>
+
+        <section class="card panel panel-wide">
+            <h2>Course Management</h2>
+            <form id="course-form" class="grid-form">
+                <input type="text" id="course_id" placeholder="Course ID" required>
+                <input type="text" id="course_name" placeholder="Course Name" required>
+                <input type="text" id="instructor_name" placeholder="Instructor Name" required>
+                <input type="number" id="credits" placeholder="Credits" min="1" required>
+                <input type="text" id="department" placeholder="Department" required>
+                <button type="submit">Add Course</button>
+            </form>
+            <button id="load-courses" class="outline-btn">View All Courses</button>
+            <div class="table-wrap">
+                <table id="courses-table">
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Name</th>
+                            <th>Instructor</th>
+                            <th>Credits</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card panel panel-wide">
+            <h2>View Registrations</h2>
+            <form id="filter-form" class="inline-form">
+                <input type="text" id="filter_student_id" placeholder="Student ID (optional)">
+                <button type="submit">Load Registrations</button>
+            </form>
+            <div class="table-wrap">
+                <table id="registrations-table">
+                    <thead>
+                        <tr>
+                            <th>Registration ID</th>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}?v={{ asset_version }}"></script>
+</body>
+</html>
